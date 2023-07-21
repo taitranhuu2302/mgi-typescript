@@ -9,7 +9,6 @@ console.log("🚀 ~ file: index.ts:8 ~ output:", output, `| Type: ${typeof outpu
 console.log("🚀 ~ file: index.ts:9 ~ output1:", output1, `| Type: ${typeof output1}`)
  
 // Generic Types
-
 interface GenericIdentityFn<Type> {
   <Type>(arg: Type): Type;
 }
@@ -65,6 +64,7 @@ type L = ReturnType<typeof f>;
 //   y: number;
 // }
 
+// Indexed Access Types
 type Person = { age: number; name: string; alive: boolean };
 type Age = Person["age"];
 // type Age = number
