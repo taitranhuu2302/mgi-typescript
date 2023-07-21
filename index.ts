@@ -86,7 +86,7 @@ interface Animal {
 interface Dog extends Animal {
   woof(): void;
 }
- 
+
 type Example1 = Dog extends Animal ? number : string;
 // type Example1 = number
 
@@ -114,7 +114,7 @@ interface Horse {
 type OnlyBoolsAndHorses = {
   [key: string]: boolean | Horse;
 };
- 
+
 const conforms: OnlyBoolsAndHorses = {
   del: true,
   rodney: false,
@@ -130,6 +130,10 @@ type Features = {
 };
  
 type FeatureOptions = OptionsFlags<Features>;
+// type FeatureOptions = {
+//   darkMode: boolean;
+//   newUserProfile: boolean;
+// }
 
 // Mapping Modifiers
 type CreateMutable<Type> = {
@@ -143,6 +147,10 @@ type LockedAccount = {
 };
  
 type UnlockedAccount = CreateMutable<LockedAccount>;
+// type UnlockedAccount = {
+//   id: string;
+//   name: string;
+// }
 
 // Removes 'optional' attributes from a type's properties
 type Concrete<Type> = {
@@ -156,6 +164,11 @@ type MaybeUser = {
 };
  
 type User = Concrete<MaybeUser>;
+// type User = {
+//   id: string;
+//   name: string;
+//   age: number;
+// }
 
 // Key Remapping via 'as'
 type Getters<Type> = {
